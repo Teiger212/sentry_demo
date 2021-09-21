@@ -1,8 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import * as Sentry from '@sentry/browser';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './index.css';
+
+console.log(`${process.env.REACT_APP_NAME} ${process.env.REACT_APP_VERSION}`);
+
+const RELEASE = '1.0.1';
+Sentry.init({
+  dsn: 'https://b5212eb9b1b241d180fc96fb90b8b7ff@o1008738.ingest.sentry.io/5972750',
+  release: RELEASE,
+});
 
 ReactDOM.render(
   <React.StrictMode>
